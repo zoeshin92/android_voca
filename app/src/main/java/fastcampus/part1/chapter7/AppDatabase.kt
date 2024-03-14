@@ -11,8 +11,8 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         private var INSTANCE: AppDatabase? = null
         fun getInstance(context: Context): AppDatabase? {
-            if (INSTANCE == null) {
-                synchronized(AppDatabase::class.java) {
+            if (INSTANCE == null) { // INSTANCE가 null 이면 초기화 해주기
+                synchronized(AppDatabase::class.java) { // 오직 하나만 만들어주기 위해서 synchronized
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fastcampus.part1.chapter7.databinding.ItemWordBinding
 
 class WordAdaptor(
-    private val list: MutableList<Word>,
+    val list: MutableList<Word>,
     private val itemClickListner: ItemClickListner? = null,
 ) :
     RecyclerView.Adapter<WordAdaptor.WordViewHolder>() {
@@ -21,7 +21,7 @@ class WordAdaptor(
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val word = list[position]
         holder.bind(word)
-        holder.itemView.setOnClickListener{ itemClickListner?.onClick(word)}
+        holder.itemView.setOnClickListener { itemClickListner?.onClick(word) }
     }
 
     override fun getItemCount(): Int {
